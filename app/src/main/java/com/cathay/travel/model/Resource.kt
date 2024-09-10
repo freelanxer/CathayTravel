@@ -1,4 +1,4 @@
-package com.cathay.travel.data
+package com.cathay.travel.model
 
 sealed class Resource<T>(
     val data: T? = null,

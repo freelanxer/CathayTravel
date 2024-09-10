@@ -1,11 +1,11 @@
-package com.cathay.travel.data.place
+package com.cathay.travel.model.news
 
 
 import com.google.gson.annotations.SerializedName
 
-data class PlaceListModel(
+data class NewsListModel(
     @SerializedName("data")
-    val placeList: List<Place>,
+    val newsList: List<News>,
     @SerializedName("total")
     val total: Int
 )

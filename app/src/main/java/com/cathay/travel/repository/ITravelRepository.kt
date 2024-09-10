@@ -1,8 +1,8 @@
 package com.cathay.travel.repository
 
-import com.cathay.travel.data.Resource
-import com.cathay.travel.data.news.NewsListModel
-import com.cathay.travel.data.place.PlaceListModel
+import com.cathay.travel.model.Resource
+import com.cathay.travel.model.news.NewsListModel
+import com.cathay.travel.model.place.PlaceListModel
 import kotlinx.coroutines.flow.Flow
 
 interface ITravelRepository {

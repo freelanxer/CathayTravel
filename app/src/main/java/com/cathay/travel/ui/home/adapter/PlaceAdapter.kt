@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.cathay.travel.R
-import com.cathay.travel.data.place.Place
+import com.cathay.travel.model.place.Place
 import com.cathay.travel.databinding.ListItemPlaceBinding
 import com.cathay.travel.ui.home.HomeViewModel
 

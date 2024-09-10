@@ -2,10 +2,8 @@ package com.cathay.travel.ui.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.cathay.travel.data.news.News
-import com.cathay.travel.data.news.NewsDiffUtil
+import com.cathay.travel.model.news.News
 import com.cathay.travel.databinding.ListItemNewsBinding
 import com.cathay.travel.ui.home.HomeViewModel
 

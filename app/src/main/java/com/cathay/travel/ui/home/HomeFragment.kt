@@ -9,8 +9,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cathay.travel.R
-import com.cathay.travel.data.news.News
-import com.cathay.travel.data.place.Place
+import com.cathay.travel.model.news.News
+import com.cathay.travel.model.place.Place
 import com.cathay.travel.databinding.FragmentHomeBinding
 import com.cathay.travel.extension.observe
 import com.cathay.travel.ui.home.adapter.NewsAdapter

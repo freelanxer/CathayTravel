@@ -1,4 +1,4 @@
-package com.cathay.travel.data.place
+package com.cathay.travel.model.place
 
 
 import com.google.gson.annotations.SerializedName

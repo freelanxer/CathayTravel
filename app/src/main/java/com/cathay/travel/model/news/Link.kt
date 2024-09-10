@@ -1,11 +1,9 @@
-package com.cathay.travel.data.place
+package com.cathay.travel.model.news
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Image(
-    @SerializedName("ext")
-    val ext: String,
+data class Link(
     @SerializedName("src")
     val src: String,
     @SerializedName("subject")

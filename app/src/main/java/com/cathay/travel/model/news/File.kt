@@ -1,4 +1,4 @@
-package com.cathay.travel.data.news
+package com.cathay.travel.model.news
 
 
 import com.google.gson.annotations.SerializedName
