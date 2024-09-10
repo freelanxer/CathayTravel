@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">CathayTravel</string>
+    <string name="app_name">Taipei Travel</string>
+    <string name="fragment_label_home">@string/app_name</string>
+    <string name="fragment_label_news">News</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor.
+    </string>
 </resources>
