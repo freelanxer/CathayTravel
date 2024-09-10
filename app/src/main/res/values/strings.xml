@@ -2,6 +2,9 @@
     <string name="app_name">Taipei Travel</string>
     <string name="fragment_label_home">@string/app_name</string>
     <string name="fragment_label_news">News</string>
+    <string name="label_place">遊憩景點</string>
+    <string name="label_place_count">台北市景點：%d</string>
+
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
