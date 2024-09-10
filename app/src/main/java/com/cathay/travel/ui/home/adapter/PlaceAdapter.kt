@@ -7,10 +7,9 @@ import coil.load
 import com.cathay.travel.R
 import com.cathay.travel.model.place.Place
 import com.cathay.travel.databinding.ListItemPlaceBinding
-import com.cathay.travel.ui.home.HomeViewModel
 
 class PlaceAdapter(
-    private val viewModel: HomeViewModel
+    private val listener: Listener
 ) : RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
     private var list: List<Place> = listOf()
 
@@ -27,7 +26,7 @@ class PlaceAdapter(
         val place = list[position]
         holder.bind(place)
         holder.itemView.setOnClickListener {
-            viewModel.clickPlace(place)
+            listener.onPlaceClicked(place)
         }
     }
 
@@ -52,5 +51,7 @@ class PlaceAdapter(
             }
         }
     }
-
+    interface Listener {
+        fun onPlaceClicked(place: Place)
+    }
 }

@@ -4,13 +4,8 @@
     <string name="fragment_label_news">News</string>
     <string name="label_place">遊憩景點</string>
     <string name="label_place_count">台北市景點：%d</string>
-
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
-        dui nec risus. Maecenas non sodales nisi, vel dictum dolor.
-    </string>
+    <string name="label_open_time">營業時間：%s</string>
+    <string name="label_address">地址：%s</string>
+    <string name="label_telephone">電話：%s</string>
+    <string name="label_official_site">網址：%s</string>
 </resources>

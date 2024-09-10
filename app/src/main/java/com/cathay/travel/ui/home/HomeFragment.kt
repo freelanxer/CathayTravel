@@ -18,12 +18,12 @@ import com.cathay.travel.ui.home.adapter.PlaceAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), NewsAdapter.Listener, PlaceAdapter.Listener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by activityViewModels()
-    private val newsAdapter: NewsAdapter by lazy { NewsAdapter(viewModel) }
-    private val placeAdapter: PlaceAdapter by lazy { PlaceAdapter(viewModel) }
+    private val newsAdapter: NewsAdapter by lazy { NewsAdapter(this) }
+    private val placeAdapter: PlaceAdapter by lazy { PlaceAdapter(this) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,10 +37,8 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         observe(viewModel.loadingLiveData, ::onLoading)
         observe(viewModel.newsListLiveData, ::onNewList)
-        observe(viewModel.selectedNewsLiveData, ::onNewsSelected)
         observe(viewModel.placeCountLiveData, ::onPlaceCount)
         observe(viewModel.placeListLiveData, ::onPlaceList)
-        observe(viewModel.selectedPlaceLiveData, ::onPlaceSelected)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -77,13 +75,15 @@ class HomeFragment : Fragment() {
         placeAdapter.setData(placeList)
     }
 
-    private fun onNewsSelected(selectedNews: News) {
-        if (selectedNews.url.isNullOrEmpty())
+    override fun onNewsClicked(news: News) {
+        if (news.url.isNullOrEmpty())
             return
+        viewModel.clickNews(news)
         findNavController().navigate(R.id.action_Home_to_News)
     }
 
-    private fun onPlaceSelected(selectedPlace: Place) {
+    override fun onPlaceClicked(place: Place) {
+        viewModel.clickPlace(place)
         findNavController().navigate(R.id.action_Home_to_Place)
     }
 

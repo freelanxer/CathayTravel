@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Place(
     @SerializedName("address")
-    val address: String,
+    val address: String?,
     @SerializedName("category")
     val category: List<Category>?,
     @SerializedName("distric")
@@ -27,7 +27,7 @@ data class Place(
     @SerializedName("images")
     val images: List<Image>?,
     @SerializedName("introduction")
-    val introduction: String,
+    val introduction: String?,
     @SerializedName("links")
     val links: List<Any>?,
     @SerializedName("modified")
@@ -41,11 +41,11 @@ data class Place(
     @SerializedName("nlat")
     val nlat: Double,
     @SerializedName("official_site")
-    val officialSite: String,
+    val officialSite: String?,
     @SerializedName("open_status")
     val openStatus: Int,
     @SerializedName("open_time")
-    val openTime: String,
+    val openTime: String?,
     @SerializedName("remind")
     val remind: String,
     @SerializedName("service")
@@ -55,11 +55,11 @@ data class Place(
     @SerializedName("target")
     val target: List<Target>?,
     @SerializedName("tel")
-    val tel: String,
+    val tel: String?,
     @SerializedName("ticket")
     val ticket: String,
     @SerializedName("url")
-    val url: String,
+    val url: String?,
     @SerializedName("zipcode")
     val zipcode: String
 )

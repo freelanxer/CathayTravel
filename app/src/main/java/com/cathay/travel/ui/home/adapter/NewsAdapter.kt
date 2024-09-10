@@ -5,10 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cathay.travel.model.news.News
 import com.cathay.travel.databinding.ListItemNewsBinding
-import com.cathay.travel.ui.home.HomeViewModel
 
 class NewsAdapter(
-    private val viewModel: HomeViewModel
+    private val listener: Listener
 ) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     private var list: List<News> = listOf()
 
@@ -25,7 +24,7 @@ class NewsAdapter(
         val news = list[position]
         holder.bind(news)
         holder.itemView.setOnClickListener {
-            viewModel.clickNews(news)
+            listener.onNewsClicked(news)
         }
     }
 
@@ -47,4 +46,7 @@ class NewsAdapter(
         }
     }
 
+    interface Listener {
+        fun onNewsClicked(news: News)
+    }
 }
