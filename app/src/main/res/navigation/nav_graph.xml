@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomeFragment">
+
+    <!--Home-->
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.cathay.travel.ui.home.HomeFragment"
+        android:label="@string/fragment_label_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_Home_to_News"
+            app:destination="@id/NewsFragment" />
+
+        <action
+            android:id="@+id/action_Home_to_Place"
+            app:destination="@id/PlaceFragment"/>
+
+    </fragment>
+
+    <!--News-->
+    <fragment
+        android:id="@+id/NewsFragment"
+        android:name="com.cathay.travel.ui.news.NewsFragment"
+        android:label="@string/fragment_label_news"
+        tools:layout="@layout/fragment_news">
+
+    </fragment>
+
+    <!--Place-->
+    <fragment
+        android:id="@+id/PlaceFragment"
+        android:name="com.cathay.travel.ui.place.PlaceFragment"
+        tools:layout="@layout/fragment_place">
+
+        <argument
+            android:name="index"
+            app:argType="integer"/>
+
+    </fragment>
+
+</navigation>
