@@ -1,6 +1,7 @@
 package com.cathay.travel.data.news
 
 
+import androidx.recyclerview.widget.DiffUtil
 import com.google.gson.annotations.SerializedName
 
 data class News(
@@ -11,11 +12,11 @@ data class News(
     @SerializedName("end")
     val end: Any,
     @SerializedName("files")
-    val files: List<File>,
+    val files: List<File>?,
     @SerializedName("id")
     val id: Int,
     @SerializedName("links")
-    val links: List<Link>,
+    val links: List<Link>?,
     @SerializedName("modified")
     val modified: String,
     @SerializedName("posted")
@@ -25,3 +26,21 @@ data class News(
     @SerializedName("url")
     val url: String
 )
+
+class NewsDiffUtil(
+    private val oldList: List<News>,
+    private val newList: List<News>
+) : DiffUtil.Callback() {
+    override fun getOldListSize(): Int = oldList.size
+
+    override fun getNewListSize(): Int = newList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return oldList[oldItemPosition].id == newList[newItemPosition].id
+    }
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return oldList[oldItemPosition] == newList[newItemPosition]
+    }
+
+}

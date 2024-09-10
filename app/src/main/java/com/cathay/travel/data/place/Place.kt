@@ -7,7 +7,7 @@ data class Place(
     @SerializedName("address")
     val address: String,
     @SerializedName("category")
-    val category: List<Category>,
+    val category: List<Category>?,
     @SerializedName("distric")
     val distric: String,
     @SerializedName("elong")
@@ -19,17 +19,17 @@ data class Place(
     @SerializedName("fax")
     val fax: String,
     @SerializedName("files")
-    val files: List<Any>,
+    val files: List<Any>?,
     @SerializedName("friendly")
-    val friendly: List<Any>,
+    val friendly: List<Any>?,
     @SerializedName("id")
     val id: Int,
     @SerializedName("images")
-    val images: List<Image>,
+    val images: List<Image>?,
     @SerializedName("introduction")
     val introduction: String,
     @SerializedName("links")
-    val links: List<Any>,
+    val links: List<Any>?,
     @SerializedName("modified")
     val modified: String,
     @SerializedName("months")
@@ -49,11 +49,11 @@ data class Place(
     @SerializedName("remind")
     val remind: String,
     @SerializedName("service")
-    val service: List<Service>,
+    val service: List<Service>?,
     @SerializedName("staytime")
     val staytime: String,
     @SerializedName("target")
-    val target: List<Target>,
+    val target: List<Target>?,
     @SerializedName("tel")
     val tel: String,
     @SerializedName("ticket")
