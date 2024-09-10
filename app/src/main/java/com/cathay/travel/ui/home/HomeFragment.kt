@@ -78,6 +78,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun onNewsSelected(selectedNews: News) {
+        if (selectedNews.url.isNullOrEmpty())
+            return
         findNavController().navigate(R.id.action_Home_to_News)
     }
 
