@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
     // Hilt
     alias(libs.plugins.hiltAndroid)
+    // SafeArgs
+    alias(libs.plugins.androidx.navigation.safeargs)
 }
 
 android {
