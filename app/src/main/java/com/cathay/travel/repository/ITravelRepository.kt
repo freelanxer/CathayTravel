@@ -3,6 +3,7 @@ package com.cathay.travel.repository
 import com.cathay.travel.data.Resource
 import com.cathay.travel.data.news.NewsListModel
 import com.cathay.travel.data.place.PlaceListModel
+import kotlinx.coroutines.flow.Flow
 
 interface ITravelRepository {
     suspend fun getNews(
@@ -10,7 +11,7 @@ interface ITravelRepository {
         begin: String? = null,
         end: String? = null,
         page: Int = 1,
-    ): Resource<NewsListModel>
+    ): Flow<Resource<NewsListModel>>
 
     suspend fun getPlaceList(
         lang: String,
@@ -18,5 +19,5 @@ interface ITravelRepository {
         nLat: Double? = null,
         eLong: Double? = null,
         page: Int = 1,
-    ): Resource<PlaceListModel>
+    ): Flow<Resource<PlaceListModel>>
 }
