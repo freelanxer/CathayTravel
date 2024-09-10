@@ -25,6 +25,9 @@ class HomeViewModel @Inject constructor(
     private val _loadingLiveData = MutableLiveData(false)
     val loadingLiveData: LiveData<Boolean> get() = _loadingLiveData
 
+    private val _placeCountLiveData = MutableLiveData(0)
+    val placeCountLiveData: LiveData<Int> get() = _placeCountLiveData
+
     fun getNews() {
         viewModelScope.launch {
             travelRepository.getNews(lang = "zh-tw").collect { response ->
@@ -50,6 +53,7 @@ class HomeViewModel @Inject constructor(
                 when(response) {
                     is Resource.Success -> {
                         _placeListLiveData.value = response.data?.placeList ?: listOf()
+                        _placeCountLiveData.value = response.data?.total
                         _loadingLiveData.value = false
                     }
                     is Resource.Loading -> {
