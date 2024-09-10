@@ -3,7 +3,7 @@ package com.cathay.travel.data.place
 
 import com.google.gson.annotations.SerializedName
 
-data class Data(
+data class Place(
     @SerializedName("address")
     val address: String,
     @SerializedName("category")

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class PlaceListModel(
     @SerializedName("data")
-    val `data`: List<Data>,
+    val placeList: List<Place>,
     @SerializedName("total")
     val total: Int
 )

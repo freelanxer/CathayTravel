@@ -3,7 +3,7 @@ package com.cathay.travel.data.news
 
 import com.google.gson.annotations.SerializedName
 
-data class Data(
+data class News(
     @SerializedName("begin")
     val begin: Any,
     @SerializedName("description")
