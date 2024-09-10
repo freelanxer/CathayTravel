@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.cathay.travel.databinding.FragmentPlaceBinding
 import com.cathay.travel.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,7 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class PlaceFragment : Fragment() {
     private var _binding: FragmentPlaceBinding? = null
     private val binding get() = _binding!!
-    val args: PlaceFragmentArgs by navArgs()
     val viewModel: HomeViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +41,7 @@ class PlaceFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val place = viewModel.placeListLiveData.value?.get(args.index)
+        val place = viewModel.selectedPlaceLiveData.value
         (activity as AppCompatActivity).supportActionBar?.title = place?.name
     }
 

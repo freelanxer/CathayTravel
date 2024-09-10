@@ -24,7 +24,11 @@ class NewsAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(list[position])
+        val news = list[position]
+        holder.bind(news)
+        holder.itemView.setOnClickListener {
+            viewModel.clickNews(news)
+        }
     }
 
     fun setData(newList: List<News>) {

@@ -36,9 +36,11 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         observe(viewModel.loadingLiveData, ::onLoading)
+        observe(viewModel.newsListLiveData, ::onNewList)
+        observe(viewModel.selectedNewsLiveData, ::onNewsSelected)
         observe(viewModel.placeCountLiveData, ::onPlaceCount)
         observe(viewModel.placeListLiveData, ::onPlaceList)
-        observe(viewModel.newsListLiveData, ::onNewList)
+        observe(viewModel.selectedPlaceLiveData, ::onPlaceSelected)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,6 +75,14 @@ class HomeFragment : Fragment() {
 
     private fun onPlaceList(placeList: List<Place>) {
         placeAdapter.setData(placeList)
+    }
+
+    private fun onNewsSelected(selectedNews: News) {
+        findNavController().navigate(R.id.action_Home_to_News)
+    }
+
+    private fun onPlaceSelected(selectedPlace: Place) {
+        findNavController().navigate(R.id.action_Home_to_Place)
     }
 
     override fun onDestroyView() {

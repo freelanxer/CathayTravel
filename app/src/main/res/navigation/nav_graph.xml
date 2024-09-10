@@ -38,10 +38,6 @@
         android:name="com.cathay.travel.ui.place.PlaceFragment"
         tools:layout="@layout/fragment_place">
 
-        <argument
-            android:name="index"
-            app:argType="integer"/>
-
     </fragment>
 
 </navigation>

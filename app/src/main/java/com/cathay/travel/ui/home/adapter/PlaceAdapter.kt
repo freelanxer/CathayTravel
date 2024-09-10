@@ -24,7 +24,11 @@ class PlaceAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(list[position])
+        val place = list[position]
+        holder.bind(place)
+        holder.itemView.setOnClickListener {
+            viewModel.clickPlace(place)
+        }
     }
 
     fun setData(newList: List<Place>) {

@@ -28,6 +28,12 @@ class HomeViewModel @Inject constructor(
     private val _placeCountLiveData = MutableLiveData(0)
     val placeCountLiveData: LiveData<Int> get() = _placeCountLiveData
 
+    private val _selectedPlaceLiveData = MutableLiveData<Place>()
+    val selectedPlaceLiveData: LiveData<Place> get() = _selectedPlaceLiveData
+
+    private val _selectedNewsLiveData = MutableLiveData<News>()
+    val selectedNewsLiveData: LiveData<News> get() = _selectedNewsLiveData
+
     fun getNews() {
         viewModelScope.launch {
             travelRepository.getNews(lang = "zh-tw").collect { response ->
@@ -65,6 +71,14 @@ class HomeViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun clickNews(news: News) {
+        _selectedNewsLiveData.value = news
+    }
+
+    fun clickPlace(place: Place) {
+        _selectedPlaceLiveData.value = place
     }
 
 }
