@@ -38,6 +38,26 @@
         android:name="com.cathay.travel.ui.place.PlaceFragment"
         tools:layout="@layout/fragment_place">
 
+        <action
+            android:id="@+id/action_Place_to_Web"
+            app:destination="@id/WebViewFragment"/>
+
+    </fragment>
+
+    <!--WebView-->
+    <fragment
+        android:id="@+id/WebViewFragment"
+        android:name="com.cathay.travel.ui.web.WebViewFragment"
+        tools:layout="@layout/fragment_web_view">
+
+        <argument
+            android:name="title"
+            app:argType="string"/>
+
+        <argument
+            android:name="url"
+            app:argType="string"/>
+
     </fragment>
 
 </navigation>
