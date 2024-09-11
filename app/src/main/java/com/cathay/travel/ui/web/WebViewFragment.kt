@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.cathay.travel.databinding.FragmentWebViewBinding
+import com.cathay.travel.extension.onBackButtonPressed
 import com.cathay.travel.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,6 +35,11 @@ class WebViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        onBackButtonPressed {
+            val canGoBack = binding.webView.canGoBack()
+            binding.webView.goBack()
+            canGoBack
+        }
         setWebViewConfig()
     }
 
