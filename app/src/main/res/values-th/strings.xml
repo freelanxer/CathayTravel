@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ท่องเที่ยวไทเป</string>
+    <string name="fragment_label_home">@string/app_name</string>
+    <string name="fragment_label_news">ข่าวล่าสุด</string>
+    <string name="label_place">สถานที่ท่องเที่ยว</string>
+    <string name="label_place_count">สถานที่ท่องเที่ยวในเมืองไทเป: %d</string>
+    <string name="label_open_time">เวลาทำการ: %s</string>
+    <string name="label_address">ที่อยู่: %s</string>
+    <string name="label_telephone">โทรศัพท์: %s</string>
+    <string name="label_official_site">เว็บไซต์: %s</string>
+    <string name="label_choose_language">เลือกภาษา</string>
+</resources>

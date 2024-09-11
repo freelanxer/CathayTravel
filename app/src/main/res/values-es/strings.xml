@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Viajes a Taipei</string>
+    <string name="fragment_label_home">@string/app_name</string>
+    <string name="fragment_label_news">Últimas noticias</string>
+    <string name="label_place">Atracciones recreativas</string>
+    <string name="label_place_count">Atracciones de la ciudad de Taipei: %d</string>
+    <string name="label_open_time">Horario comercial: %s</string>
+    <string name="label_address">Dirección: %s</string>
+    <string name="label_telephone">Teléfono: %s</string>
+    <string name="label_official_site">Sitio web: %s</string>
+    <string name="label_choose_language">Elegir idioma</string>
+</resources>

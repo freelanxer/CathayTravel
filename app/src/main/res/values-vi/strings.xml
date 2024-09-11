@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Du lịch Đài Bắc</string>
+    <string name="fragment_label_home">@string/app_name</string>
+    <string name="fragment_label_news">Tin tức mới nhất</string>
+    <string name="label_place">Các điểm giải trí</string>
+    <string name="label_place_count">Các điểm tham quan của Thành phố Đài Bắc: %d</string>
+    <string name="label_open_time">Giờ làm việc: %s</string>
+    <string name="label_address">Địa chỉ: %s</string>
+    <string name="label_telephone">Điện thoại: %s</string>
+    <string name="label_official_site">Trang web: %s</string>
+    <string name="label_choose_language">Chọn ngôn ngữ</string>
+</resources>

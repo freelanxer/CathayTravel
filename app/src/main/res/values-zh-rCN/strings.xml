@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">旅游台北</string>
+    <string name="fragment_label_home">@string/app_name</string>
+    <string name="fragment_label_news">最新消息</string>
+    <string name="label_place">游憩景点</string>
+    <string name="label_place_count">台北市景点：%d</string>
+    <string name="label_open_time">营业时间：%s</string>
+    <string name="label_address">地址：%s</string>
+    <string name="label_telephone">电话：%s</string>
+    <string name="label_official_site">网址：%s</string>
+    <string name="label_choose_language">选择语言</string>
+</resources>
