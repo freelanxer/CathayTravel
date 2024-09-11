@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,8 +14,11 @@ import com.cathay.travel.model.news.News
 import com.cathay.travel.model.place.Place
 import com.cathay.travel.databinding.FragmentHomeBinding
 import com.cathay.travel.extension.observe
+import com.cathay.travel.model.EventObserver
 import com.cathay.travel.ui.home.adapter.NewsAdapter
 import com.cathay.travel.ui.home.adapter.PlaceAdapter
+import com.cathay.travel.utils.LanguageUtil
+import com.cathay.travel.utils.SharedPreferenceUtil
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,6 +43,10 @@ class HomeFragment : Fragment(), NewsAdapter.Listener, PlaceAdapter.Listener {
         observe(viewModel.newsListLiveData, ::onNewList)
         observe(viewModel.placeCountLiveData, ::onPlaceCount)
         observe(viewModel.placeListLiveData, ::onPlaceList)
+        observe(viewModel.placeListLiveData, ::onPlaceList)
+        viewModel.toastLiveData.observe(this, EventObserver {
+            Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,8 +59,12 @@ class HomeFragment : Fragment(), NewsAdapter.Listener, PlaceAdapter.Listener {
         binding.placeListRv.layoutManager = LinearLayoutManager(activity)
         binding.placeListRv.adapter = placeAdapter
 
-        viewModel.getNews()
-        viewModel.getPlaceList()
+        val langCode = activity?.let { SharedPreferenceUtil.getLanguageCode(it) }
+        langCode?.let {
+            val code = LanguageUtil.convertLangTagToCode(it)
+            viewModel.getNews(code)
+            viewModel.getPlaceList(code)
+        }
     }
 
     private fun onLoading(loading: Boolean) {

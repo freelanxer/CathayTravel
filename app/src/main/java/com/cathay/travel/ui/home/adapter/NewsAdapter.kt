@@ -29,11 +29,7 @@ class NewsAdapter(
     }
 
     fun setData(newList: List<News>) {
-//        val callback = NewsDiffUtil(list, newList)
-//        val result = DiffUtil.calculateDiff(callback)
-//        list = newList
-//        result.dispatchUpdatesTo(this)
-        list = newList.subList(0,3)
+        list = if (newList.size >= 3) newList.subList(0, 3) else newList
         notifyDataSetChanged()
     }
 

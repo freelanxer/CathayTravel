@@ -23,7 +23,7 @@ class TravelRepository @Inject constructor(
                 val result = travelApi.news(lang, begin, end, page)
                 emit(Resource.Success(data = result))
             } catch (ex: Exception) {
-                emit(Resource.Error(message = ""))
+                emit(Resource.Error(message = ex.message))
             }
         }
     }
@@ -41,7 +41,7 @@ class TravelRepository @Inject constructor(
                 val result = travelApi.placeList(lang, categoryIds, nLat, eLong, page)
                 emit(Resource.Success(data = result))
             } catch (ex: Exception) {
-                emit(Resource.Error(message = ""))
+                emit(Resource.Error(message = ex.message))
             }
         }
     }

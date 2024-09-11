@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cathay.travel.model.Event
 import com.cathay.travel.model.Resource
 import com.cathay.travel.model.news.News
 import com.cathay.travel.model.place.Place
@@ -25,6 +26,9 @@ class HomeViewModel @Inject constructor(
     private val _loadingLiveData = MutableLiveData(false)
     val loadingLiveData: LiveData<Boolean> get() = _loadingLiveData
 
+    private val _toastLiveData = MutableLiveData<Event<String>>()
+    val toastLiveData: LiveData<Event<String>> get() = _toastLiveData
+
     private val _placeCountLiveData = MutableLiveData(0)
     val placeCountLiveData: LiveData<Int> get() = _placeCountLiveData
 
@@ -34,9 +38,9 @@ class HomeViewModel @Inject constructor(
     private val _selectedNewsLiveData = MutableLiveData<News>()
     val selectedNewsLiveData: LiveData<News> get() = _selectedNewsLiveData
 
-    fun getNews() {
+    fun getNews(lang: String) {
         viewModelScope.launch {
-            travelRepository.getNews(lang = "zh-tw").collect { response ->
+            travelRepository.getNews(lang).collect { response ->
                 when(response) {
                     is Resource.Success -> {
                         _newsListLiveData.value = response.data?.newsList ?: listOf()
@@ -45,7 +49,10 @@ class HomeViewModel @Inject constructor(
                     is Resource.Loading -> {
                         _loadingLiveData.value = true
                     }
-                    else -> {
+                    is Resource.Error -> {
+                        response.message?.let {
+                            _toastLiveData.value = Event(it)
+                        }
                         _loadingLiveData.value = false
                     }
                 }
@@ -53,9 +60,9 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getPlaceList() {
+    fun getPlaceList(lang: String) {
         viewModelScope.launch {
-            travelRepository.getPlaceList(lang = "zh-tw").collect { response ->
+            travelRepository.getPlaceList(lang).collect { response ->
                 when(response) {
                     is Resource.Success -> {
                         _placeListLiveData.value = response.data?.placeList ?: listOf()
@@ -65,7 +72,10 @@ class HomeViewModel @Inject constructor(
                     is Resource.Loading -> {
                         _loadingLiveData.value = true
                     }
-                    else -> {
+                    is Resource.Error -> {
+                        response.message?.let {
+                            _toastLiveData.value = Event(it)
+                        }
                         _loadingLiveData.value = false
                     }
                 }
