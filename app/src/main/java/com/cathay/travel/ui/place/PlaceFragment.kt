@@ -45,12 +45,12 @@ class PlaceFragment : Fragment() {
         val place = viewModel.selectedPlaceLiveData.value
         place?.let {
             setActionBarTitle(it.name)
-            setOpenTime(place)
-            setAddress(place)
-            setTelephone(place)
-            setOfficialSite(place)
-            setIntroduction(place)
-            setPhotoPager(place)
+            setOpenTime(it)
+            setAddress(it)
+            setTelephone(it)
+            setOfficialSite(it)
+            setIntroduction(it)
+            setPhotoPager(it)
         }
     }
 
