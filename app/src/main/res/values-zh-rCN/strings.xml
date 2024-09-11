@@ -8,6 +8,6 @@
     <string name="label_open_time">营业时间：%s</string>
     <string name="label_address">地址：%s</string>
     <string name="label_telephone">电话：%s</string>
-    <string name="label_official_site">网址：%s</string>
+    <string name="label_official_site">网址：<![CDATA[<font color="#0984E3"><u>%s</u></font>]]></string>
     <string name="label_choose_language">选择语言</string>
 </resources>

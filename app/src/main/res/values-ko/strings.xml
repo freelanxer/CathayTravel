@@ -9,6 +9,6 @@
     <string name="label_open_time">영업시간: %s</string>
     <string name="label_address">주소: %s</string>
     <string name="label_telephone">전화번호: %s</string>
-    <string name="label_official_site">웹사이트: %s</string>
+    <string name="label_official_site">웹사이트: <![CDATA[<font color="#0984E3"><u>%s</u></font>]]></string>
     <string name="label_choose_language">언어 선택</string>
 </resources>

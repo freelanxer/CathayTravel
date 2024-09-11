@@ -8,6 +8,6 @@
     <string name="label_open_time">営業時間: %s</string>
     <string name="label_address">アドレス: %s</string>
     <string name="label_telephone">電話番号: %s</string>
-    <string name="label_official_site">ウェブサイト: %s</string>
+    <string name="label_official_site">ウェブサイト: <![CDATA[<font color="#0984E3"><u>%s</u></font>]]></string>
     <string name="label_choose_language">言語を選択</string>
 </resources>

@@ -8,6 +8,6 @@
     <string name="label_open_time">Jam kerja: %s</string>
     <string name="label_address">Alamat: %s</string>
     <string name="label_telephone">Telepon: %s</string>
-    <string name="label_official_site">Situs web: %s</string>
+    <string name="label_official_site">Situs web: <![CDATA[<font color="#0984E3"><u>%s</u></font>]]></string>
     <string name="label_choose_language">Pilih bahasa</string>
 </resources>

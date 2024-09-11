@@ -8,6 +8,6 @@
     <string name="label_open_time">Horario comercial: %s</string>
     <string name="label_address">Dirección: %s</string>
     <string name="label_telephone">Teléfono: %s</string>
-    <string name="label_official_site">Sitio web: %s</string>
+    <string name="label_official_site">Sitio web: <![CDATA[<font color="#0984E3"><u>%s</u></font>]]></string>
     <string name="label_choose_language">Elegir idioma</string>
 </resources>

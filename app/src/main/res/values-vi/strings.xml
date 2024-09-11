@@ -8,6 +8,6 @@
     <string name="label_open_time">Giờ làm việc: %s</string>
     <string name="label_address">Địa chỉ: %s</string>
     <string name="label_telephone">Điện thoại: %s</string>
-    <string name="label_official_site">Trang web: %s</string>
+    <string name="label_official_site">Trang web: <![CDATA[<font color="#0984E3"><u>%s</u></font>]]></string>
     <string name="label_choose_language">Chọn ngôn ngữ</string>
 </resources>
