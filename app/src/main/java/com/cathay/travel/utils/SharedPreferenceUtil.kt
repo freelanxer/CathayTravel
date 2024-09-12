@@ -4,13 +4,22 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.cathay.travel.model.lang.Language
 
+/**
+ * SharedPreference 管理工具
+ */
 object SharedPreferenceUtil {
     private const val PREFERENCE_NAME = "travel_preference"
     private const val PREF_LANGUAGE_CODE = "pref_language_code"
 
+    /**
+     * 取得語言代碼
+     */
     fun getLanguageCode(context: Context): String? =
         getString(context, PREF_LANGUAGE_CODE, Language.ZhTw.langTag)
 
+    /**
+     * 儲存語言代碼
+     */
     fun setLanguageCode(context: Context, langCode: String) =
         setString(context, PREF_LANGUAGE_CODE, langCode)
 

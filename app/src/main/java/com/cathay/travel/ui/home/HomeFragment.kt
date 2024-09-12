@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.cathay.travel.R
 import com.cathay.travel.model.news.News
 import com.cathay.travel.model.place.Place
@@ -39,11 +38,15 @@ class HomeFragment : Fragment(), NewsAdapter.Listener, PlaceAdapter.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        observe(viewModel.loadingLiveData, ::onLoading)
+        // 觀察 ViewModel LiveData
         observe(viewModel.newsListLiveData, ::onNewList)
         observe(viewModel.placeCountLiveData, ::onPlaceCount)
         observe(viewModel.placeListLiveData, ::onPlaceList)
         observe(viewModel.placeListLiveData, ::onPlaceList)
+        viewModel.loadingLiveData.observe(this, EventObserver {
+            binding.loadingView.visibility =
+                if (it) View.VISIBLE else View.GONE
+        })
         viewModel.toastLiveData.observe(this, EventObserver {
             Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
         })
@@ -51,14 +54,10 @@ class HomeFragment : Fragment(), NewsAdapter.Listener, PlaceAdapter.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.newsListRv.setHasFixedSize(true)
-        binding.newsListRv.layoutManager = LinearLayoutManager(activity)
+        // 設定列表 Adapter
         binding.newsListRv.adapter = newsAdapter
-
-        binding.placeListRv.setHasFixedSize(true)
-        binding.placeListRv.layoutManager = LinearLayoutManager(activity)
         binding.placeListRv.adapter = placeAdapter
-
+        // 取得目前語言，並發出 API 請求
         val langCode = activity?.let { SharedPreferenceUtil.getLanguageCode(it) }
         langCode?.let {
             val code = LanguageUtil.convertLangTagToCode(it)
@@ -67,11 +66,9 @@ class HomeFragment : Fragment(), NewsAdapter.Listener, PlaceAdapter.Listener {
         }
     }
 
-    private fun onLoading(loading: Boolean) {
-        binding.loadingView.visibility =
-            if (loading) View.VISIBLE else View.GONE
-    }
-
+    /**
+     * View 顯示景點數
+     */
     private fun onPlaceCount(count: Int) {
         binding.placeCountTv.text = String.format(
             getString(R.string.label_place_count),
@@ -79,21 +76,38 @@ class HomeFragment : Fragment(), NewsAdapter.Listener, PlaceAdapter.Listener {
         )
     }
 
+    /**
+     * View 顯示最新消息列表
+     */
     private fun onNewList(newsList: List<News>) {
         newsAdapter.setData(newsList)
     }
 
+    /**
+     * View 顯示景點列表
+     */
     private fun onPlaceList(placeList: List<Place>) {
         placeAdapter.setData(placeList)
     }
 
+    /**
+     * 最新消息列表點擊事件
+     */
     override fun onNewsClicked(news: News) {
         if (news.url.isNullOrEmpty())
             return
         viewModel.clickNews(news)
-        findNavController().navigate(R.id.action_Home_to_News)
+        findNavController().navigate(
+            HomeFragmentDirections.actionPlaceToWeb(
+                title = getString(R.string.fragment_label_news),
+                url = news.url
+            )
+        )
     }
 
+    /**
+     * 景點列表點擊事件
+     */
     override fun onPlaceClicked(place: Place) {
         viewModel.clickPlace(place)
         findNavController().navigate(R.id.action_Home_to_Place)

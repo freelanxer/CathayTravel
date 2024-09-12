@@ -12,6 +12,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.activityViewModels
 import com.cathay.travel.databinding.FragmentNewsBinding
+import com.cathay.travel.extension.onBackButtonPressed
 import com.cathay.travel.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,6 +33,11 @@ class NewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setWebViewConfig()
+        onBackButtonPressed {
+            val canGoBack = binding.newsWebView.canGoBack()
+            binding.newsWebView.goBack()
+            canGoBack
+        }
     }
 
     override fun onResume() {
@@ -49,11 +55,11 @@ class NewsFragment : Fragment() {
             webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                     super.onPageStarted(view, url, favicon)
-                    binding.loadingView.visibility = View.VISIBLE
+                    _binding?.loadingView?.visibility = View.VISIBLE
                 }
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
-                    binding.loadingView.visibility = View.GONE
+                    _binding?.loadingView?.visibility = View.GONE
                 }
             }
             webChromeClient = object : WebChromeClient() {

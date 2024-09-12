@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.cathay.travel.databinding.PhotoPagerItemBinding
 
+/**
+ * 照片 Adapter
+ */
 class PhotoPagerAdapter : RecyclerView.Adapter<PhotoPagerAdapter.ViewHolder>() {
     private var urlList: List<String> = listOf()
 

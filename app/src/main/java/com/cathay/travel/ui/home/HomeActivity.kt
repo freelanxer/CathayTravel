@@ -31,18 +31,22 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 綁定客製化 ActionBar
         setSupportActionBar(binding.toolbar)
 
+        // 設定 Navigation host fragment
         val navController = findNavController(R.id.nav_host_fragment)
         navController.addOnDestinationChangedListener { _, destination, _ ->
+            // 切換語言時，設定語言 icon 只在首頁顯示
             when (destination.id) {
                 R.id.HomeFragment -> langIcon?.apply { isVisible = true }
                 else -> langIcon?.apply { isVisible = false }
             }
         }
+
+        // ActionBar 綁定 Navigation graph
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
     }
 
     /**
@@ -81,12 +85,6 @@ class HomeActivity : AppCompatActivity() {
         }.setTitle(R.string.label_choose_language).show()
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.nav_menu, menu)
         langIcon = menu?.findItem(R.id.action_lang)
@@ -94,12 +92,14 @@ class HomeActivity : AppCompatActivity() {
             showLanguageDialog()
             true
         }
+        // 設定語言 icon 只在首頁顯示
         langIcon?.isVisible =
             findNavController(R.id.nav_host_fragment).currentDestination?.id == R.id.HomeFragment
         return true
     }
 
     override fun attachBaseContext(newBase: Context?) {
+        // 依照 SharedPreference 中儲存的語言設定 resource config
         newBase?.let { context ->
             val langCode = SharedPreferenceUtil.getLanguageCode(context)
             langCode?.let {
@@ -107,5 +107,11 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         super.attachBaseContext(newBase)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration)
+                || super.onSupportNavigateUp()
     }
 }

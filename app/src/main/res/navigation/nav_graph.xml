@@ -14,12 +14,16 @@
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_Home_to_News"
-            app:destination="@id/NewsFragment" />
-
-        <action
             android:id="@+id/action_Home_to_Place"
             app:destination="@id/PlaceFragment"/>
+
+        <action
+            android:id="@+id/action_Place_to_Web"
+            app:destination="@id/WebViewFragment"/>
+
+<!--        <action-->
+<!--            android:id="@+id/action_Home_to_News"-->
+<!--            app:destination="@id/NewsFragment" />-->
 
     </fragment>
 
@@ -50,10 +54,12 @@
         android:name="com.cathay.travel.ui.web.WebViewFragment"
         tools:layout="@layout/fragment_web_view">
 
+        <!--ActionBar 標題-->
         <argument
             android:name="title"
             app:argType="string"/>
 
+        <!--網頁連結-->
         <argument
             android:name="url"
             app:argType="string"/>

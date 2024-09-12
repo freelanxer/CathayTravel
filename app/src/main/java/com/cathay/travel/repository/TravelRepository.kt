@@ -8,9 +8,17 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
+/**
+ * 旅遊台北 Repository
+ * - 最新消息
+ * - 景點
+ */
 class TravelRepository @Inject constructor(
     private val travelApi: TravelTaipeiApi,
 ) : ITravelRepository {
+    /**
+     * 取得最新消息資料
+     */
     override suspend fun getNews(
         lang: String,
         begin: String?,
@@ -28,6 +36,9 @@ class TravelRepository @Inject constructor(
         }
     }
 
+    /**
+     * 取得景點資料
+     */
     override suspend fun getPlaceList(
         lang: String,
         categoryIds: String?,

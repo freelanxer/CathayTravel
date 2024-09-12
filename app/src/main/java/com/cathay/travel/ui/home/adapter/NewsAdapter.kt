@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cathay.travel.model.news.News
 import com.cathay.travel.databinding.ListItemNewsBinding
 
+/**
+ * 最新消息列表 Adapter
+ */
 class NewsAdapter(
     private val listener: Listener
 ) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {

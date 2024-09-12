@@ -8,6 +8,9 @@ import com.cathay.travel.R
 import com.cathay.travel.model.place.Place
 import com.cathay.travel.databinding.ListItemPlaceBinding
 
+/**
+ * 景點列表 Adapter
+ */
 class PlaceAdapter(
     private val listener: Listener
 ) : RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {

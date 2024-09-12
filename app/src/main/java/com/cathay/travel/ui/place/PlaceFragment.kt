@@ -104,12 +104,7 @@ class PlaceFragment : Fragment() {
             val formatUrl = String.format(getString(R.string.label_official_site), url)
             binding.officialSiteTv.text = Html.fromHtml(formatUrl, Html.FROM_HTML_MODE_LEGACY)
             binding.officialSiteTv.setOnClickListener {
-                findNavController().navigate(
-                    PlaceFragmentDirections.actionPlaceToWeb(
-                        url = url,
-                        title = place.name
-                    )
-                )
+                navigateToWebViewFragment(title = place.name, url)
             }
         }
     }
@@ -133,6 +128,18 @@ class PlaceFragment : Fragment() {
         imageUrlList?.let {
             photoAdapter.setPhoto(imageUrlList)
         }
+    }
+
+    /**
+     * 導航至 WebView
+     */
+    private fun navigateToWebViewFragment(title: String, url: String) {
+        findNavController().navigate(
+            PlaceFragmentDirections.actionPlaceToWeb(
+                url = url,
+                title = title
+            )
+        )
     }
 
     override fun onDestroyView() {
