@@ -10,7 +10,9 @@ import com.cathay.travel.model.news.News
 import com.cathay.travel.model.place.Place
 import com.cathay.travel.repository.ITravelRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -53,7 +55,10 @@ class HomeViewModel @Inject constructor(
      */
     fun getNews(lang: String) {
         viewModelScope.launch {
-            travelRepository.getNews(lang).collect { response ->
+            val resourceFlow = withContext(Dispatchers.IO) {
+                travelRepository.getNews(lang)
+            }
+            resourceFlow.collect { response ->
                 when(response) {
                     is Resource.Success -> {
                         _newsListLiveData.value = response.data?.newsList ?: listOf()
@@ -78,7 +83,10 @@ class HomeViewModel @Inject constructor(
      */
     fun getPlaceList(lang: String) {
         viewModelScope.launch {
-            travelRepository.getPlaceList(lang).collect { response ->
+            val resourceFlow = withContext(Dispatchers.IO) {
+                travelRepository.getPlaceList(lang)
+            }
+            resourceFlow.collect { response ->
                 when(response) {
                     is Resource.Success -> {
                         _placeListLiveData.value = response.data?.placeList ?: listOf()
