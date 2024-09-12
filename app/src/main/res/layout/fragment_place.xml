@@ -9,8 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="match_parent">
         
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/photo_vp"
@@ -20,133 +19,143 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/open_time_card"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/photo_vp"
-            app:contentPaddingLeft="8dp"
-            app:contentPaddingRight="8dp"
-            app:contentPaddingTop="8dp"
-            app:contentPaddingBottom="8dp"
-            app:cardUseCompatPadding="true"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="4dp">
+            android:padding="16dp">
 
-            <TextView
-                android:id="@+id/open_time_tv"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/open_time_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_16"
-                android:autoLink="all"
-                android:textIsSelectable="true"
-                tools:text="@string/label_open_time"/>
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:contentPaddingLeft="8dp"
+                app:contentPaddingRight="8dp"
+                app:contentPaddingTop="8dp"
+                app:contentPaddingBottom="8dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="4dp">
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/open_time_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_16"
+                    android:autoLink="all"
+                    android:textIsSelectable="true"
+                    tools:text="@string/label_open_time"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/address_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/open_time_card"
-            app:contentPaddingLeft="8dp"
-            app:contentPaddingRight="8dp"
-            app:contentPaddingTop="8dp"
-            app:contentPaddingBottom="8dp"
-            app:cardUseCompatPadding="true"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="4dp">
+            </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/address_tv"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/address_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_16"
-                android:autoLink="all"
-                android:textIsSelectable="true"
-                tools:text="@string/label_address"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/open_time_card"
+                app:contentPaddingLeft="8dp"
+                app:contentPaddingRight="8dp"
+                app:contentPaddingTop="8dp"
+                app:contentPaddingBottom="8dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="4dp">
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/address_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_16"
+                    android:autoLink="all"
+                    android:textIsSelectable="true"
+                    tools:text="@string/label_address"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/telephone_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_card"
-            app:contentPaddingLeft="8dp"
-            app:contentPaddingRight="8dp"
-            app:contentPaddingTop="8dp"
-            app:contentPaddingBottom="8dp"
-            app:cardUseCompatPadding="true"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="4dp">
+            </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/telephone_tv"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/telephone_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_16"
-                android:autoLink="all"
-                tools:text="@string/label_telephone"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_card"
+                app:contentPaddingLeft="8dp"
+                app:contentPaddingRight="8dp"
+                app:contentPaddingTop="8dp"
+                app:contentPaddingBottom="8dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="4dp">
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/telephone_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_16"
+                    android:autoLink="all"
+                    tools:text="@string/label_telephone"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/official_site_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/telephone_card"
-            app:contentPaddingLeft="8dp"
-            app:contentPaddingRight="8dp"
-            app:contentPaddingTop="8dp"
-            app:contentPaddingBottom="8dp"
-            app:cardUseCompatPadding="true"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="4dp">
+            </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/official_site_tv"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/official_site_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_16"
-                tools:text="@string/label_official_site"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/telephone_card"
+                app:contentPaddingLeft="8dp"
+                app:contentPaddingRight="8dp"
+                app:contentPaddingTop="8dp"
+                app:contentPaddingBottom="8dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="4dp">
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/official_site_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_16"
+                    tools:text="@string/label_official_site"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/intro_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/official_site_card"
-            app:contentPaddingLeft="8dp"
-            app:contentPaddingRight="8dp"
-            app:contentPaddingTop="8dp"
-            app:contentPaddingBottom="8dp"
-            app:cardUseCompatPadding="true"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
+            </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/intro_tv"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/intro_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_16"
-                android:autoLink="all"
-                android:textIsSelectable="true"
-                tools:text="Introduction..."/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/official_site_card"
+                app:contentPaddingLeft="8dp"
+                app:contentPaddingRight="8dp"
+                app:contentPaddingTop="8dp"
+                app:contentPaddingBottom="8dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/intro_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_16"
+                    android:autoLink="all"
+                    android:textIsSelectable="true"
+                    tools:text="Introduction..."/>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
