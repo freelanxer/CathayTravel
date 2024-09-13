@@ -42,7 +42,6 @@ class HomeFragment : Fragment(), NewsAdapter.Listener, PlaceAdapter.Listener {
         observe(viewModel.newsListLiveData, ::onNewList)
         observe(viewModel.placeCountLiveData, ::onPlaceCount)
         observe(viewModel.placeListLiveData, ::onPlaceList)
-        observe(viewModel.placeListLiveData, ::onPlaceList)
         viewModel.loadingLiveData.observe(this, EventObserver {
             binding.loadingView.visibility =
                 if (it) View.VISIBLE else View.GONE
