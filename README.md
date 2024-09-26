@@ -1,4 +1,4 @@
-# CathayTravel - 旅遊台北
+# TaipeiTravel - 旅遊台北
 
 ### 專案截圖
 ![demo_01](screenshots/demo_screenshot_01.png)  
@@ -36,24 +36,24 @@ CathayTravel/app/src/main/java/com/cathay/travel
 │   └── AppModule.kt
 ├── extension/
 │   └── ComponentExt.kt
-├── model
+├── model/
 │   ├── Event.kt
 │   ├── EventObserver.kt
 │   ├── Resource.kt
 │   ├── lang/
 │   ├── news/
 │   └── place/
-├── network
+├── network/
 │   └── TravelTaipeiApi.kt
-├── repository
+├── repository/
 │   ├── ITravelRepository.kt
 │   └── TravelRepository.kt
-├── ui
+├── ui/
 │   ├── home/
 │   ├── news/
 │   ├── place/
 │   └── web/
-└── utils
+└── utils/
     ├── LanguageUtil.kt
     └── SharedPreferenceUtil.kt
 ```  
@@ -64,7 +64,7 @@ home/
 ├── HomeActivity.kt
 ├── HomeFragment.kt
 ├── HomeViewModel.kt
-└── adapter
+└── adapter/
     ├── NewsAdapter.kt
     └── PlaceAdapter.kt
 ```
@@ -74,7 +74,7 @@ home/
 ``` Kotlin
 place/
 ├── PlaceFragment.kt
-└── adapter
+└── adapter/
     └── PhotoPagerAdapter.kt
 ```
 
